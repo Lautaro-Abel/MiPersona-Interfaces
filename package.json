@@ -1,0 +1,27 @@
+{
+  "name": "paginaweb",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "service-worker.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@sqlitecloud/drivers": "^1.0.837",
+    "axios": "^1.17.0",
+    "bcrypt": "^6.0.0",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express-rate-limit": "^8.4.1",
+    "express-validator": "^7.3.2",
+    "https": "^1.0.0",
+    "jsonwebtoken": "^9.0.3",
+    "morgan": "^1.10.1",
+    "path": "^0.12.7",
+    "sanitize-html": "^2.17.3"
+  }
+}

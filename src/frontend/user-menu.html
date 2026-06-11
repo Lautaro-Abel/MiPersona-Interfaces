@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Persona - Portal Ciudadano</title>
+    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Top Navbar -->
+    <header class="top-navbar">
+        <div class="logo-container" onclick="switchTab('inicio', document.getElementById('nav-inicio'))">
+            <i class="fa-solid fa-leaf logo-icon"></i>
+            <span class="logo-text">Mi Persona</span>
+        </div>
+        <nav class="top-menu">
+            <ul>
+                <li id="nav-inicio" class="active" onclick="switchTab('inicio', this)">Inicio</li>
+                <li onclick="switchTab('perfil', this)">Gestión de Perfil</li>
+                <li onclick="switchTab('tramites', this)">Mis Trámites</li>
+                <li><a href="#" id="logoutBtn" class="logout-link"><i class="fa-solid fa-right-from-bracket"></i>
+                        Salir</a></li>
+            </ul>
+        </nav>
+        <!-- Mobile Menu Toggle -->
+        <div class="menu-toggle">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- Section: Inicio -->
+        <section id="inicio" class="tab-content active">
+            <div class="hero-section">
+                <div class="hero-logo">
+                    <i class="fa-solid fa-leaf"></i>
+                    <h1>Mi Persona</h1>
+                </div>
+                <div class="hero-info">
+                    <h2 id="welcomeTitle">Bienvenido</h2>
+                    <p id="welcomeDescription">
+                        Cargando información del usuario...
+                    </p>
+                    <div class="hero-buttons">
+                        <button class="btn-primary"
+                            onclick="switchTab('perfil', document.querySelectorAll('.top-menu li')[1])">Ver mi
+                            perfil</button>
+                        <button class="btn-secondary"
+                            onclick="switchTab('tramites', document.querySelectorAll('.top-menu li')[2])">Ir a mis
+                            trámites</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Perfil -->
+        <section id="perfil" class="tab-content">
+            <div class="section-header">
+                <h3 class="section-title">Gestión de Perfil</h3>
+                <p>Administra tu información personal y credenciales de acceso.</p>
+            </div>
+            <div class="cards-grid">
+
+                <a href="#" id="showUserData" class="card">
+                    <i class="fa-solid fa-address-card"></i>
+                    <span>Ver Mis Datos</span>
+                </a>
+
+                <a href="#" id="editProfileBtn" class="card">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                    <span>Actualizar Datos Personales</span>
+                </a>
+
+                <a href="#" id="securityBtn" class="card">
+                    <i class="fa-solid fa-lock"></i>
+                    <span>Actualizar Email/Contraseña</span>
+                </a>
+
+                <a href="#" id="deleteAccountBtn" class="card">
+                    <i class="fa-solid fa-trash-can"></i>
+                    <span>Eliminar Cuenta</span>
+                </a>
+            </div>
+        </section>
+
+
+        <!-- Section: Trámites -->
+        <section id="tramites" class="tab-content">
+            <div class="section-header">
+                <h3 class="section-title">Mis Trámites y Credenciales</h3>
+                <p>Accede a tus documentos, licencias y turnos asignados.</p>
+            </div>
+            <div class="cards-grid">
+                <a href="#" id="showTurns" class="card">
+                    <i class="fa-solid fa-calendar-check"></i>
+                    <span>Ver Mis Turnos</span>
+                </a>
+
+                <a href="#" id="generateTurnBtn" class="card">
+                    <i class="fa-solid fa-calendar-plus"></i>
+                    <span>Consultar/Solicitar Turnos Disponibles</span>
+                </a>
+
+                <a href="#" id="showCertificates" class="card">
+                    <i class="fa-solid fa-file-contract"></i>
+                    <span>Mis Certificados</span>
+                </a>
+                <a href="#" id="showLicences" class="card">
+                    <i class="fa-solid fa-id-card"></i>
+                    <span>Mis Licencias</span>
+                </a>
+            </div>
+        </section>
+
+        <section id="resultPanel" class="result-panel hidden">
+            <h3 id="resultTitle"></h3>
+            <div id="resultContent"></div>
+        </section>
+
+    </main>
+
+    <script>
+        // Tab switching logic
+        function switchTab(tabId, element) {
+
+            // Limpiar panel de resultados
+            clearPanel();
+
+            document.querySelectorAll('.tab-content').forEach(tab =>
+                tab.classList.remove('active')
+            );
+            document.querySelectorAll('.top-menu li').forEach(li =>
+                li.classList.remove('active')
+            );
+            document.getElementById(tabId).classList.add('active');
+            if (element) {
+                element.classList.add('active');
+            }
+        }
+
+    </script>
+    <script src="user-menu.js"></script>
+</body>
+
+</html>
