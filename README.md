@@ -26,7 +26,7 @@ La aplicación permite a los usuarios almacenar información personal, consultar
 
 ```bash
 git clone <url-del-repositorio>
-cd mi-persona-digital
+cd miPersona
 ```
 
 ### 2. Instalar dependencias
